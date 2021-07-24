@@ -1,23 +1,33 @@
-\documentclass{article}
+\documentclass{scrbook}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
-\usepackage{amsthm}
+\usepackage{amsthm,amsmath,amsfonts}
+\usepackage[bookmarks]{hyperref}
+\usepackage{enumitem}
 
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{corollary}{Korollar}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem*{remark}{Remark}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Bemerkung}
+\newtheorem*{note}{Anmerkung}
 
-\title{Geometrische Konstruktionen mit einem Mira 2}
-\author{Silas G}
-\date{June 2021}
+\newcommand{\vct}[1]{\ensuremath{(\begin{array}{c}#1\end{array})}}
+\newcommand{\vc}[2]{\ensuremath{\binom{#1}{#2}}}
 
 \begin{document}
+\frontmatter
+\begin{titlepage}
+    \title{Geometrische Konstruktionen mit einem Mira}
+    \author{Silas G}
+    \date{June 2021}
+    \maketitle
+\end{titlepage}
+\tableofcontents
 
-\maketitle
-
-\section{Einführung}
+\mainmatter
+\chapter{Einführung}
 
 Die Konstruktion von geometrischen Figuren ist uns allen aus der Schule bekannt.
 Zumeist wurden diese durch den Einsatz von Zirkel und Lineal eingeführt.
@@ -29,10 +39,13 @@ In Kapitel 2 widmen wir uns der genauen Definition eines Mira im mathematischen 
 In Kapitel 3 wenden wir uns klassischen Konstruktionsproblemen zu und analysieren welche durch den Einsatz eines Mira möglich sind.
 In Kapitel 4 werden wir die Ergebnisse aus den vorigen Kapiteln denen aus anderen Arbeiten zu weiteren Konstruktionswerkzeugen gegenüber stellen.
 
-\section{Geometrie mit einem Mira}
+\chapter{Geometrie mit einem Mira}
 
 In diesem Abschnitt werden wir Prunkte die mit einem Mira konstruierbar sind studieren und den Zahlenkörper aller Mira Zahlen bestimmen.
-Die Notation und Grundlagen können gerne in Grundlagen der ebenen Geometrie nachgelesen werden.
+Die Notation und Grundlagen können gerne in \cite{Vogel} nachgelesen werden.
+
+
+Zunächst werden wir eine einfache Beschreibung erarbeiten um Punkte mit einem Mira zu konstruieren. Dafür brauchen wir ein Verständnis für den Umgang mit einem Mira. Dieses Verständnis werden wir und nach und nach erarbeiten, um die Algebraisierung dieses Konstruktionswerkzeuges besser zu durchschauen. 
 
 \begin{remark}
     Mit dem Zirkel und Lineal gibt es drei Arten neue Punkte zu konstruieren.
@@ -41,6 +54,129 @@ Die Notation und Grundlagen können gerne in Grundlagen der ebenen Geometrie nac
         \item Bestimme die Schnittpunkte zweier Kreise
         \item Bestimme die Schnittpunkte eines Kreises mit einer Geraden
     \end{enumerate}
+    Wir werden auch für den Mira die Arten neue Punkte zu konstruieren beschreiben.
 \end{remark}
 
+\begin{remark}
+    Mit dem Mira gibt es fünf Arten neue Punkte zu konstruieren.
+    \begin{enumerate}
+        \item Bestimme die Gerade zwischen zweier Punkte
+        \item Bestimme den Schnittpunkt zweier nicht paralleler Geraden
+        \item Reflektiere einen Punkt an einer Geraden
+        \item Reflektiere eine Gerade an einer Geraden
+    \end{enumerate}
+
+    Wir identifizieren die ersten beiden Arten als die beiden Arten die ein Lineal zur Verfügung hat.
+    Was sich alleine durch diese beiden Arten konstruieren lässt, können wir in \cite{Vogel} nachlesen.
+    Im folgenden werden wir Ergebnisse studieren, die durch die beiden weiteren Arten zu konstruieren möglich sind. 
+\end{remark}
+
+\begin{definition}
+    \label{Reflexion}
+    Sei g eine Gerade in $\mathbb{E}$. Die Reflexion an g, genannt $r_g$ ist definiert als:
+    $$r_g: \mathbb{R}^2 \longrightarrow \mathbb{R}^2$$
+    $$r_g(P) \longmapsto \begin{cases}
+    P & \text{wenn } P \in g \\
+    Q & \text{wobei g Mittelsenkrechte von } \overline{PQ} \text{ ist, wenn } P \in g
+    \end{cases}
+    $$
+    Die Abbildung $r_g$ ist wohldefiniert.
+\end{definition}
+
+\begin{remark}
+    Wir führen Vereinfachungen für die Reflexion für Punkten und Geraden ein.
+    Für einen Punkt $P \in \mathbb{R}^2$ sei $P^g := r_g(P)$
+    Für eine Gerade $h \in \mathbb{G_R}$ sei $h^g := r_g(h) = \{r_g(P)|P \in h\}$
+\end{remark}
+
+\begin{definition}
+    \label{Reflexionsgerade}
+    Seien $g, h$ Geraden und $P, Q$ Punkte. Wir nennen eine Gerade $m$ eine Reflexionsgerade, falls
+    \begin{itemize}
+        \item $g$ auf $h$ reflektiert, also $g^m=h$, oder
+        \item $P$ auf $g$ reflektiert, also $P^m \in g$, oder
+        \item $P$ auf $Q$ reflektiert, also $P^m = Q$
+    \end{itemize}
+    
+\end{definition}
+
+\begin{definition}
+    Im Fall des geometrischen Konstruktionsproblems \\
+    $ (M,\mathcal{W}) = (\{\binom{0}{0},\binom{1}{0} \}, \{ W_M\}) $ \\
+    nennen wir $(M,\mathcal{W})$-Punkte auch $\mathbf{Mira-Punkte}$ und $(M,\mathcal{W})$-Kurven $\mathbf{Mira-Geraden}$.
+\end{definition}
+
+\begin{proposition}
+    % Macht Sinn, da das aus Axiomen folgen muss.
+    Jede Reflexionsgerade ist eine Mira-Gerade.
+\end{proposition}
+ 
+\begin{proposition}
+    \label{Mira-Geraden-Beispiele}
+    \begin{enumerate}[label=(\alph*)]
+        \item Die Koordinatenachsen sind Mira-Geraden.
+        \item Ein Punkt $P = \binom{x}{y} \in \mathbb{R}$ ist genau dann ein Mira-Punkt, wenn seine Lotfußpunkte $\binom{x}{0}$ und $\binom{0}{y}$ auf den Koordinatenachsen Mira-Punkte sind.
+        \item Sei $x \neq 0$ eine reelle Zahl. Genau dann sind die vier Punkte $\binom{x}{0}$, $\binom{-x}{0}$, $\binom{0}{x}$, $\binom{0}{-x}$ Mira-Punkte, wenn dies auf einen von diesen zutrifft.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Wir zeigen zunächst Behauptung (a). Die x-Achse erhalten wir als die Mira-Gerade $W_M(\binom{0}{0}, \binom{1}{0})$. Für die y-Achse genügt es das Lot zur x-Achse in Punkt $\binom{0}{0}$ zu fällen. 
+    Um den zweiten Teil von (a) zu zeigen werden wir im folgenden Beiweis des Lemma \ref{Lot} eine Konstruktion des Lots mit einem Mira entwickeln und so die y-Achse konstruieren zu können.
+    Da die Koordinatenachsen nach (a) Mira-Geraden sind, genügt es zum Beweis von Behauptung (b) zu zeigen, dass wir mit einem Mira das Lot der Punkte $P, \binom{x}{0}$ und $\binom{0}{y}$ auf den Koordinatenachsen fällen können.
+    Im Beweis des folgenden Lemmas \ref{Lot} entwickeln wir eine Konstruktion des Lots mit einem Mira und beweisen so auch Behauptung (b).
+    Zum Beweis von Behauptung (c) nehmen wir an, einer der genannten vier Punkte sei ein Mira-Punkt. Sei ohne Einschränkung $\binom{x}{0}$ ein Mira-Punkt. Dies lässt sich ohne Einschränkung annehmen, da sonst eine Drehung um den Nullpunkt in diesen Fall führt ohne Einschränkung der Allgemeinheit. 
+    Da die y-Achse nach (a) eine Mira-Gerade ist, lässt sich daran der Punkt  $\binom{x}{0}$ reflektieren und so der Punkt $\binom{x}{0}^{y-Achse} = \binom{-x}{0}$ konstruieren und ist damit auch nach Proposition \ref{Reflexion} ein Mira-Punkt.
+    Für die Punkte $\binom{0}{x}$ und $\binom{0}{-x}$ lassen sich Reflexionsgeraden für den Mira um den Punkt $\binom{0}{0}$ finden, so dass der Punkt $\binom{x}{0}$ auf die y-Achse reflektiert werden kann. Diese Art der Ausrichtung wird in folgender Proposition \ref{Reflexionsgerade} entwickelt. Damit haben wir auch Behauptung (c) bewiesen.
+\end{proof}
+
+\begin{lemma}
+    \label{Lot}
+    Seien $A,B,P$ Mira-Punkte mit $A \neq B$. \\
+    Dann ist das Lot $\mathcal{l}_{\overleftrightarrow{AB}}P$ von $P$ auf $\overleftrightarrow{AB}$ eine Mira-Gerade.
+\end{lemma}
+
+\begin{proof}
+    Wir betrachten zunächst den Fall das $P$ auf der Geraden $\overleftrightarrow{AB}$ liegt.
+    Lege dazu den Mira durch den Punkt $P$, so dass die Gerade $\overleftrightarrow{AB} = r_{}$
+    Behauptung: Es existiert eine Reflexionsgerade, so dass 
+\end{proof}
+
+\begin{definition}
+    Eine reelle Zahl $x \in \mathbb{R}$ heißt genau dann eine Mira-Zahl, wenn $\binom{x}{0} \in \mathbb{R}^2$ ein Mira-Punkt ist. 
+    Die Menge der Mira Zahlen bezeichnen wir mit $K_M$.
+\end{definition}
+
+\begin{proposition}
+    \begin{enumerate}[label=(\alph*)]
+        \item Die Menge der Mira-Punkte ist gegeben durch
+        $$K_M^2 = \{P=\binom{x}{y} \vert x,y \in K_M\}$$
+        \item $\mathbb{Z} \subseteq K_M$
+        \item $K_M$ bildet einen Teilkörper der reellen Zahlen $\mathbb{R}$; insbesondere gilt $\mathbb{Q} \subseteq K_M$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Behauptung (a) folgt direkt aus den Teilen (b) und (c) von Proposition \ref{Mira-Geraden-Beispiele}.
+    Um die Behauptung (b) zu zeigen, genügt es $\mathbb{N}_0 \subseteq K_M$ zu zeigen nach Proposition \ref{Mira-Geraden-Beispiele} (c).
+    Für alle $n \in \mathbb{N}_0$ ist offensichtlich der Punkt \vc{n+2}{0} die Reflexion des Punkts \vc{n}{0} an Punkt \vc{n+1}{0}. 
+    %Da nach Definition die Punkte \vc{0 \\ 0} und \vc{1 \\ 0} Mira-Punkte sind, folgt induktiv, dass alle Punkte der Form \vc{n \\ 0} mit $n \in \mathbb{N}_0$ Mira Punkte %sind.
+    %Damit gilt $\mathbb{N}_0 \subseteq K_M$ und die %Beheauptung ist gezeigt.
+    %Wir wollen nun Behauptung (c) zeigen, also dass $K_M %\subseteq \mathbb{R}$ ein Teilkörper ist. Die %Teilmengeneigenschaft ist klar. Nach (b) liegen sowohl %das neutrale Element der Additition $0$ in $K_M$ als auch %das neutrale Element der Multiplikation $1$ in $K_M$.
+    %Weiter ist $K_M$ unter Addition und additiver %Inversenbildung abgeschlossen. \\
+    %denn: \\
+    %Für $x,y \in K_M$ sind nach (a) die Punkte \vc{x \\ 0} %und \vc{y \\ 0} Mira-Punkte und nach (c) auch \vc{-x \\ 0}%.
+    %Reflektiere nun \vc{-x \\ 0} an der Mittelsenkrechten von %\vc{0 \\ 0} und \vc{y \\ 0}, also 
+
+\end{proof}
+
+\chapter{Klassische Konstruktionsprobleme}
+
+\chapter{Vergleich mit weiteren Konstruktionswerkzeugen}
+
+ 
+\backmatter
+\bibliographystyle{alphadin}
+\bibliography{literatur}
+\listoffigures
 \end{document}

@@ -1,0 +1,53 @@
+\chapter{Analytische Geometrie}
+
+\begin{definition}
+    Im Fall des geometrischen Konstruktionsproblems
+    \[ (M,\mathcal{W}) = (\{\binom{0}{0},\binom{1}{0} \}, \{ W_M\}) \]
+    nennen wir $(M,\mathcal{W})$-Punkte auch \textbf{Mira-Punkte} und $(M,\mathcal{W})$-Kurven \textbf{Mira-Geraden}.
+\end{definition}
+
+\begin{definition}
+    \begin{enumerate}
+        \item Eine \textbf{Mira Gerade} ist eine Gerade in der kartesischen Ebene, die durch eine der Mira Basiskonstruktionen konstruiert wurde, wobei die 
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+    \label{Lot}
+    Seien $A,B,P$ Mira-Punkte mit $A \neq B$. \\
+    Dann ist das Lot $\mathcal{l}_{\overleftrightarrow{AB}}P$ von $P$ auf $\overleftrightarrow{AB}$ eine Mira-Gerade.
+\end{lemma}
+
+\begin{proof}
+    Wir betrachten zunächst den Fall das $P$ auf der Geraden $\overleftrightarrow{AB}$ liegt.
+    Lege dazu den Mira durch den Punkt $P$, so dass die Gerade $\overleftrightarrow{AB} = r_{}$
+    Behauptung: Es existiert eine Reflexionsgerade, so dass 
+\end{proof}
+
+\begin{definition}
+    Eine reelle Zahl $x \in \mathbb{R}$ heißt genau dann eine Mira-Zahl, wenn $\binom{x}{0} \in \mathbb{R}^2$ ein Mira-Punkt ist. 
+    Die Menge der Mira Zahlen bezeichnen wir mit $K_M$.
+\end{definition}
+
+\begin{proposition}
+    \begin{enumerate}[label=(\alph*)]
+        \item Die Menge der Mira-Punkte ist gegeben durch
+        $$K_M^2 = \{P=\binom{x}{y} \vert x,y \in K_M\}$$
+        \item $\mathbb{Z} \subseteq K_M$
+        \item $K_M$ bildet einen Teilkörper der reellen Zahlen $\mathbb{R}$; insbesondere gilt $\mathbb{Q} \subseteq K_M$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Behauptung (a) folgt direkt aus den Teilen (b) und (c) von Proposition \ref{Mira-Geraden-Beispiele}.
+    Um die Behauptung (b) zu zeigen, genügt es $\mathbb{N}_0 \subseteq K_M$ zu zeigen nach Proposition \ref{Mira-Geraden-Beispiele} (c).
+    Für alle $n \in \mathbb{N}_0$ ist offensichtlich der Punkt \vc{n+2}{0} die Reflexion des Punkts \vc{n}{0} an Punkt \vc{n+1}{0}. 
+    %Da nach Definition die Punkte \vc{0 \\ 0} und \vc{1 \\ 0} Mira-Punkte sind, folgt induktiv, dass alle Punkte der Form \vc{n \\ 0} mit $n \in \mathbb{N}_0$ Mira Punkte %sind.
+    %Damit gilt $\mathbb{N}_0 \subseteq K_M$ und die %Beheauptung ist gezeigt.
+    %Wir wollen nun Behauptung (c) zeigen, also dass $K_M %\subseteq \mathbb{R}$ ein Teilkörper ist. Die %Teilmengeneigenschaft ist klar. Nach (b) liegen sowohl %das neutrale Element der Additition $0$ in $K_M$ als auch %das neutrale Element der Multiplikation $1$ in $K_M$.
+    %Weiter ist $K_M$ unter Addition und additiver %Inversenbildung abgeschlossen. \\
+    %denn: \\
+    %Für $x,y \in K_M$ sind nach (a) die Punkte \vc{x \\ 0} %und \vc{y \\ 0} Mira-Punkte und nach (c) auch \vc{-x \\ 0}%.
+    %Reflektiere nun \vc{-x \\ 0} an der Mittelsenkrechten von %\vc{0 \\ 0} und \vc{y \\ 0}, also 
+
+\end{proof}

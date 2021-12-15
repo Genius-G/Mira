@@ -1,0 +1,66 @@
+\chapter{Geometrie mit einem Mira}
+
+In diesem Abschnitt werden wir Prunkte die mit einem Mira konstruierbar sind studieren und den Zahlenkörper aller Mira Zahlen bestimmen.
+Die Notation und Grundlagen können gerne in \cite{Vogel} nachgelesen werden.
+
+
+Zunächst werden wir eine einfache Beschreibung erarbeiten um Punkte mit einem Mira zu konstruieren. Dafür brauchen wir ein Verständnis für den Umgang mit einem Mira. Dieses Verständnis werden wir und nach und nach erarbeiten, um die Algebraisierung dieses Konstruktionswerkzeuges besser zu durchschauen. 
+
+\begin{remark}
+    Mit dem Zirkel und Lineal gibt es drei Arten neue Punkte zu konstruieren.
+    \begin{enumerate}
+        \item Bestimme den Schnittpunkt zweier nicht paralleler Geraden
+        \item Bestimme die Schnittpunkte zweier Kreise
+        \item Bestimme die Schnittpunkte eines Kreises mit einer Geraden
+    \end{enumerate}
+    Wir werden auch für den Mira die Arten neue Punkte zu konstruieren beschreiben.
+\end{remark}
+
+\begin{remark}
+    \label{rem:mira}
+    Mit dem Mira gibt es viele Arten neue Punkte und neue Geraden  zu konstruieren.
+    \begin{enumerate}[label=\roman*.]
+        \item Konstriere die Gerade, die zwei verschiedene gegebene Punkte schneidet.
+        \item Konstruiere den Punkt, der zwei nichtparallele Geraden schneidet.
+        \item Konstruiere die Gerade, die einen gegebenen Punkt auf einen anderen gegebenen Punkt reflektiert.
+        \item Konstruiere den Punkt, der eine Reflexion von einem gegebenen Punkt an einer gegebenen Geraden ist.
+        \item Konstruiere die Gerade, die einen gegebenen Punkt schneidet und einen anderen gegebenen Punkt auf eine gegebene Gerade reflektiert, falls so eine Gerade existiert.
+        \item Konstruiere die Gerade, die zwei verschiedene gegebene Punkte gleichzeitig auf gegebene Geraden reflektiert, falls so eine Gerade existiert.
+        \item Konstruiere die Gerade, die einen gegebenen Punkt schneidet und eine gegebene Gerade auf eine gegebene Gerade reflektiert, falls so eine Gerade existiert.
+    \end{enumerate}
+
+    Wir identifizieren die ersten beiden Arten als die beiden Arten die ein Lineal zur Verfügung hat.
+    Was sich alleine durch diese beiden Arten konstruieren lässt, können wir in \cite{Vogel} nachlesen.
+    Auch wenn wir eine intuitives Verständnis von Reflexion haben, werden wir im Folgenden etwas genauer definieren was wir unter einer Reflexion. Zudem werden wir etwas Notation einführen um praktische Abkürzungen für die Mira Basiskonstruktionen zu haben. Außerdem beschäftigen wir uns mit den Mira Basiskonstruktionen, die gegbenfalls mehrere Geraden als Lösung haben.
+\end{remark}
+\begin{definition}
+    \label{def:reflexion}
+    Sei g eine Gerade in $\mathbb{E}$. Die Reflexion an g, genannt $r_g$ ist definiert als:
+    $$r_g: \mathbb{R}^2 \longrightarrow \mathbb{R}^2$$
+    $$r_g(P) \longmapsto \begin{cases}
+    P & \text{wenn } P \in g \\
+    Q & \text{wobei g Mittelsenkrechte von } \overline{PQ} \text{ ist, wenn } P \in g
+    \end{cases}
+    $$
+    Die Abbildung $r_g$ ist wohldefiniert.
+\end{definition}
+
+\begin{notation}
+    \label{not:mira}
+    Sei $m,n \in \mathbb{G}$ und $P,Q \in \mathbb{R}^2, P \neq Q$
+    Dann schreiben wir für die Mira Basiskonstruktionen:
+    \begin{enumerate}[label=\roman*.]
+        \item $ \mira{P,Q}{}{} = \{l \in \mathbb{G} | P,Q \in l\} = \overleftrightarrow{PQ} $
+        \item $ \mira{m,n}{}{} = \{S \in \mathbb{R}^2, m \nparallel n | S \in m, S \in n\} $
+        \item $ \mira{}{P}{Q} = \{l \in \mathbb{G} |  r_l(P) = Q\} = m_{PQ} $
+        \item $ \mira{P}{m}{} = \{S \in \mathbb{R}^2 | S = r_m(P)\} = r_m(P) $
+        \item $ \mira{Q}{P}{m} = \{l \in \mathbb{G} |  Q \in l, r_l(P) \in m\} $
+        \item $ \mira{}{P,Q}{m,n} = \{l \in \mathbb{G} |  r_l(P) \in m, r_l(Q) \in n\} $
+        \item $ \mira{P}{m}{n} = \{l \in \mathbb{G} |  P \in l, \forall S \in m: r_l(S) \in n\} $
+    \end{enumerate}
+\end{notation}
+
+\begin{note}
+    Jedes dieser Symbole hilft uns eine Mira Basiskonstruktion darzustellen. Dabei soll das Symobl $ \mathrel{\substack{\top\\\bot}} $ einen aufrechtstehenden Mira von oben gesehen darstellen.
+    Die Mengenschreibweise ergibt Sinn in diesem Zusammenhang, da nicht für jede Mira Basiskonstruktion eine einelementige Menge gefunden werden kann. Wir werden im Folgenden auf diese Fälle eingehen.
+\end{note}

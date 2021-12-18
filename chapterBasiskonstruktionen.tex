@@ -8,7 +8,7 @@ Zunächst werden wir eine einfache Beschreibung erarbeiten um Punkte mit einem M
 
 \begin{remark}
     Mit dem Zirkel und Lineal gibt es drei Arten neue Punkte zu konstruieren.
-    \begin{enumerate}
+    \begin{enumerate}[label=\textup{(}\arabic*.\textup{)}]
         \item Bestimme den Schnittpunkt zweier nicht paralleler Geraden
         \item Bestimme die Schnittpunkte zweier Kreise
         \item Bestimme die Schnittpunkte eines Kreises mit einer Geraden
@@ -19,7 +19,7 @@ Zunächst werden wir eine einfache Beschreibung erarbeiten um Punkte mit einem M
 \begin{remark}
     \label{rem:mira}
     Mit dem Mira gibt es viele Arten neue Punkte und neue Geraden  zu konstruieren.
-    \begin{enumerate}[label=\roman*.]
+    \begin{enumerate}[label=\textup{(}\roman*.\textup{)}]
         \item Konstriere die Gerade, die zwei verschiedene gegebene Punkte schneidet.
         \item Konstruiere den Punkt, der zwei nichtparallele Geraden schneidet.
         \item Konstruiere die Gerade, die einen gegebenen Punkt auf einen anderen gegebenen Punkt reflektiert.
@@ -33,7 +33,8 @@ Zunächst werden wir eine einfache Beschreibung erarbeiten um Punkte mit einem M
     Was sich alleine durch diese beiden Arten konstruieren lässt, können wir in \cite{Vogel} nachlesen.
     Auch wenn wir eine intuitives Verständnis von Reflexion haben, werden wir im Folgenden etwas genauer definieren was wir unter einer Reflexion. Zudem werden wir etwas Notation einführen um praktische Abkürzungen für die Mira Basiskonstruktionen zu haben. Außerdem beschäftigen wir uns mit den Mira Basiskonstruktionen, die gegbenfalls mehrere Geraden als Lösung haben.
 \end{remark}
-\begin{definition}
+\begin{definition} 
+    \textit{(Reflexion)} \\
     \label{def:reflexion}
     Sei g eine Gerade in $\mathbb{E}$. Die Reflexion an g, genannt $r_g$ ist definiert als:
     $$r_g: \mathbb{R}^2 \longrightarrow \mathbb{R}^2$$
@@ -46,21 +47,60 @@ Zunächst werden wir eine einfache Beschreibung erarbeiten um Punkte mit einem M
 \end{definition}
 
 \begin{notation}
+    \textit{(Mira Symbol)}\\
     \label{not:mira}
     Sei $m,n \in \mathbb{G}$ und $P,Q \in \mathbb{R}^2, P \neq Q$
     Dann schreiben wir für die Mira Basiskonstruktionen:
-    \begin{enumerate}[label=\roman*.]
-        \item $ \mira{P,Q}{}{} = \{l \in \mathbb{G} | P,Q \in l\} = \overleftrightarrow{PQ} $
-        \item $ \mira{m,n}{}{} = \{S \in \mathbb{R}^2, m \nparallel n | S \in m, S \in n\} $
-        \item $ \mira{}{P}{Q} = \{l \in \mathbb{G} |  r_l(P) = Q\} = m_{PQ} $
-        \item $ \mira{P}{m}{} = \{S \in \mathbb{R}^2 | S = r_m(P)\} = r_m(P) $
-        \item $ \mira{Q}{P}{m} = \{l \in \mathbb{G} |  Q \in l, r_l(P) \in m\} $
-        \item $ \mira{}{P,Q}{m,n} = \{l \in \mathbb{G} |  r_l(P) \in m, r_l(Q) \in n\} $
-        \item $ \mira{P}{m}{n} = \{l \in \mathbb{G} |  P \in l, \forall S \in m: r_l(S) \in n\} $
+    \begin{enumerate}[label=\textup{(}\roman*.\textup{)}]
+        \item \label{itm:Verbindungsgerade} 
+        $ \mira{P,Q}{}{} = \{l \in \mathbb{G} | P,Q \in l\} = \overleftrightarrow{PQ} $ \hfill 
+        \textup{(}Verbindungsgerade\textup{)}
+        \item \label{itm:Schnittpunkt}
+        $ \mira{m,n}{}{} = \{S \in \mathbb{R}^2, m \nparallel n | S \in m, S \in n\} $ \hfill 
+        \textup{(}Schnittpunkt\textup{)}
+        \item \label{itm:Mittelsenkrechte}
+        $ \mira{}{P}{Q} = \{l \in \mathbb{G} |  r_l(P) = Q\} = m_{PQ} $ \hfill 
+        \textup{(}Mittelsenkrechte\textup{)}
+        \item \label{itm:PunktAnGeradenReflexion}
+        $ \mira{P}{m}{} = \{S \in \mathbb{R}^2 | S = r_m(P)\} = r_m(P) $ \hfill 
+        \textup{(}Punkt an Geraden Reflexion\textup{)}
+        \item \label{itm:PunktAufGeradenReflexion}
+        $ \mira{Q}{P}{m} = \{l \in \mathbb{G} |  Q \in l, r_l(P) \in m\} $ \hfill
+        \textup{(}Punkt auf Geraden Reflexion\textup{)}
+        \item \label{itm:SimultanReflexion}
+        $ \mira{}{P,Q}{m,n} = \{l \in \mathbb{G} |  r_l(P) \in m, r_l(Q) \in n\} $ \hfill
+        \textup{(}Simultanreflexion\textup{)}
+        \item \label{itm:GeradenReflexion}
+        $ \mira{P}{m}{n} = \{l \in \mathbb{G} |  P \in l, \forall S \in m: r_l(S) \in n\} $ \hfill
+        \textup{(}Geradenreflexion\textup{)}
     \end{enumerate}
 \end{notation}
 
 \begin{note}
-    Jedes dieser Symbole hilft uns eine Mira Basiskonstruktion darzustellen. Dabei soll das Symobl $ \mathrel{\substack{\top\\\bot}} $ einen aufrechtstehenden Mira von oben gesehen darstellen.
+    Jedes dieser Symbole hilft uns eine Mira Basiskonstruktion darzustellen. Dabei soll das Symobl $ \mira{}{}{}$ einen aufrechtstehenden Mira von oben gesehen darstellen.
     Die Mengenschreibweise ergibt Sinn in diesem Zusammenhang, da nicht für jede Mira Basiskonstruktion eine einelementige Menge gefunden werden kann. Wir werden im Folgenden auf diese Fälle eingehen.
 \end{note}
+
+\begin{remark}
+    \textit{(Zusammenhang der Mira Basiskonstruktionen)} \\
+    \label{rem:basiskonstruktion}
+    Sei $P,Q \in \mathbb{R}^2$ mit $P \neq Q$ und $m, n \in \mathbb{G}$. Dann gilt:
+    \begin{enumerate}[label=\textup{(}\alph*.\textup{)}]
+        \item Love Love 
+        %\item Mira Basiskonstruktion \ref{itm:Verbindungsgerade} lässt sich durch Mira Basiskonstruktion dies das zusammensetzen.
+        %\item Mira Basiskonstruktion \ref{itm:PunktAnGeradenReflexion} lässt sich durch Mira Basiskonstruktion dies das zusammensetzen.
+        %\item Mira Basiskonstruktion \ref{itm:GeradenReflexion} lässt sich durch Mira Basiskonstruktion dies das zusammensetzen.
+    \end{enumerate}    
+\end{remark}
+
+\begin{proof}
+    (a) 
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c}
+            \mira{}{P}{Q} & \mira{P}{Q}{l} & \mira{t_1}{Q}{} & \mira{t_2}{P}{} & \mira{}{T}{T'} \\
+            \hline
+            $l$           & $t_1,t_2$      & $T$             & $T'$            & $g$            \\
+        \end{tabular}
+    \end{center}
+     
+\end{proof}

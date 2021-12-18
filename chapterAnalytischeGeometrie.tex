@@ -1,32 +1,12 @@
 \chapter{Analytische Geometrie}
 
-\begin{definition}
-    Im Fall des geometrischen Konstruktionsproblems
-    \[ (M,\mathcal{W}) = (\{\binom{0}{0},\binom{1}{0} \}, \{ W_M\}) \]
-    nennen wir $(M,\mathcal{W})$-Punkte auch \textbf{Mira-Punkte} und $(M,\mathcal{W})$-Kurven \textbf{Mira-Geraden}.
-\end{definition}
-
-\begin{definition}
+\begin{definition} 
+    (Mira Gerade, Mira Zahl, Mira Punkt)
     \begin{enumerate}
-        \item Eine \textbf{Mira Gerade} ist eine Gerade in der kartesischen Ebene, die durch eine der Mira Basiskonstruktionen konstruiert wurde, wobei die 
+        \item Eine \textbf{Mira Gerade} ist eine Gerade in der kartesischen Ebene, die durch eine der Mira Basiskonstruktionen konstruiert wurde, wobei die gegbenen Punkte und Geraden jeweils Mira Punkte und Mira Geraden sind.
+        \item Ein \textbf{Mira Punkt} ist ein Punkt in der kartesischen Ebene, der als letzter Punkt in einer endlichen Folge $P_1,P_2, \dots, P_n$ von Punkten vorkommt, wobei jeder Punkt in der Menge $ \{ \binom{0}{0}, \binom{1}{0} \} $ liegt oder durch eine Mira Basiskonstruktion nach Definition \ref{rem:mira} konstruiert wurde.
+        \item Eine \textbf{Mira Zahl} ist eine reelle Zahl x, wenn $ \binom{x}{0} $ ein Mira Punkt ist.
     \end{enumerate}
-\end{definition}
-
-\begin{lemma}
-    \label{Lot}
-    Seien $A,B,P$ Mira-Punkte mit $A \neq B$. \\
-    Dann ist das Lot $\mathcal{l}_{\overleftrightarrow{AB}}P$ von $P$ auf $\overleftrightarrow{AB}$ eine Mira-Gerade.
-\end{lemma}
-
-\begin{proof}
-    Wir betrachten zunächst den Fall das $P$ auf der Geraden $\overleftrightarrow{AB}$ liegt.
-    Lege dazu den Mira durch den Punkt $P$, so dass die Gerade $\overleftrightarrow{AB} = r_{}$
-    Behauptung: Es existiert eine Reflexionsgerade, so dass 
-\end{proof}
-
-\begin{definition}
-    Eine reelle Zahl $x \in \mathbb{R}$ heißt genau dann eine Mira-Zahl, wenn $\binom{x}{0} \in \mathbb{R}^2$ ein Mira-Punkt ist. 
-    Die Menge der Mira Zahlen bezeichnen wir mit $K_M$.
 \end{definition}
 
 \begin{proposition}
@@ -35,6 +15,7 @@
         $$K_M^2 = \{P=\binom{x}{y} \vert x,y \in K_M\}$$
         \item $\mathbb{Z} \subseteq K_M$
         \item $K_M$ bildet einen Teilkörper der reellen Zahlen $\mathbb{R}$; insbesondere gilt $\mathbb{Q} \subseteq K_M$.
+        \item Love
     \end{enumerate}
 \end{proposition}
 
@@ -50,4 +31,23 @@
     %Für $x,y \in K_M$ sind nach (a) die Punkte \vc{x \\ 0} %und \vc{y \\ 0} Mira-Punkte und nach (c) auch \vc{-x \\ 0}%.
     %Reflektiere nun \vc{-x \\ 0} an der Mittelsenkrechten von %\vc{0 \\ 0} und \vc{y \\ 0}, also 
 
+\end{proof}
+
+\begin{lemma}
+    \textit{(Dreiteilung eines beliebigen Winkels)} \\
+    \label{lem:Winkeldreiteilung}
+    Seien $ O,X und Y$ jeweils paarweise verschiedene Mira Punkte. \\
+    Dann exisitert ein Mira Punkt R, so dass der Winkel $ \angle ROY = \frac{1}{3} \angle XOY $.
+\end{lemma}
+
+\begin{proof}
+    (a) 
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c}
+            \mira{}{P}{Q} & \mira{P}{Q}{l} & \mira{t_1}{Q}{} & \mira{t_2}{P}{} & \mira{}{T}{T'} \\
+            \hline
+            $l$           & $t_1,t_2$      & $T$             & $T'$            & $g$            \\
+        \end{tabular}
+    \end{center}
+     
 \end{proof}
